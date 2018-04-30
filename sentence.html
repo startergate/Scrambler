@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang=ko dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      function getParameters(paramName) {
+        var returnValue
+        var url = location.href
+        var parameters = (url.slice((url.indexOf('?')) + 1, url.length)).split('&')
+
+        for (var i = 0; i < parameters.length; i++) {
+          var varName = parameters[i].split('=')[0]
+          if (varName.toUpperCase == paramName.toUpperCase) {
+            returnValue = parameters[i].split('=')[1]
+            return decodeURIComponent(returnValue)
+          }
+        }
+      }
+      //GET 받아오기
+
+      function shuffle(string) {
+        var parts = string.split('+');
+        for (var i = parts.length; i > 0;) {
+          var random = parseInt(Math.random() * i)
+          var temp = parts[--i]
+          parts[i] = parts[random]
+          parts[random] = temp
+        }
+        return parts.join(' ')
+      }
+      //문장 순서 믹스
+
+      if (getParameters('btn')) {
+        var stringOutput = shuffle(getParameters('string'))
+      }
+    </script>
+    <title>Scramble-Up!</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
+  </head>
+  <body style="font-family:Noto Sans KR;font-style:Black">
+    <div class="container">
+      <div class="jumbotron text-center" style="margin-top: -5px">
+        <div class="form-group">
+          <form action="sentence.html">
+            <div class="col-md-2" style="padding-top: 7px;">
+              Scramble-Up!
+            </div>
+            <div class="form-group col-md-9">
+              <input class="form-control" type="text" name="string" placeholder="영어 문장을 입력하세요." />
+            </div>
+            <div class="col-md-1">
+              <input class="btn btn-default" type="submit" name="btn" value="입력" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="jumbotron text-center" style="margin-bottom: 0px">
+        <script type="text/javascript">
+          var tempa = getParameters('string').split('+')
+          if (tempa[0] != "undefined") {
+            document.write("입력한 문장: ")
+            document.write(tempa.join(' '))
+            document.write("<h1>" + stringOutput + "</h1>")
+          } else {
+            document.write("<h1>여기로 출력됩니다</h1>")
+          }
+        </script>
+      </div>
+      <hr style="margin-top: 10px;margin-bottom: 10px">
+      <div class="text-center">
+        ⓒ 2018 STARTERGATE
+      </div>
+    </div>
+  </body>
+</html>
