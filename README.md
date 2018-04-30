@@ -4,7 +4,7 @@ Scramble is Web Based English Only Scrambler.
 
 The Files in "bootstrap" Folder is Bootstrap 3 Files.
 
-Some Functions in This Web Page are Copied from Web Page.
+Some Functions in This Web Page are Copied from These Web Page.
 
  : https://stackoverflow.com/questions/3079385/str-shuffle-equivalent-in-javascript
  : http://vucket.com/index.php/topic/view/36
